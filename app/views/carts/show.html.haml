@@ -1,0 +1,20 @@
+%h1 カート詳細画面
+.row
+  .col-xs-1
+  .col-xs-10
+    %h2 カート投入済み商品
+    %table.table
+      %thead
+        %tr
+          %th 商品名称
+          %th 価格
+          %th 購入個数
+      %tbody
+        - @cart_commodities.each do |cart_commodity|
+          %tr
+            %td #{cart_commodity.commodity.name}
+            %td #{cart_commodity.commodity.price}
+            %td #{cart_commodity.quantity}
+
+    %br
+    = link_to '決済・配送情報入力画面へ', edit_cart_path

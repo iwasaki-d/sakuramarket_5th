@@ -44,5 +44,7 @@ module Sakuramarket5th
                        helper_specs: false,
                        integration_tool: false
     end
+
+    config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   end
 end

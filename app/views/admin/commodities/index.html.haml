@@ -1,0 +1,29 @@
+%h1 Listing admin_commodities
+
+%table.table
+  %thead
+    %tr
+      %th Name
+      %th Description
+      %th Price
+      %th Position
+      %th View enabled
+      %th
+      %th
+      %th
+
+  %tbody
+    - @commodities.each do |commodity|
+      %tr
+        %td= commodity.name
+        %td= commodity.description
+        %td= commodity.price
+        %td= commodity.position
+        %td= commodity.view_enabled
+        %td= link_to 'Show', admin_commodity_path(commodity)
+        %td= link_to 'Edit', edit_admin_commodity_path(commodity)
+        %td= link_to 'Destroy', admin_commodity_path(commodity), :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Commodity', new_admin_commodity_path

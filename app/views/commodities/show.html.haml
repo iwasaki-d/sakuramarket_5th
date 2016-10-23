@@ -1,0 +1,16 @@
+%h1 #{@commodity.name}
+%h2 参考イメージ
+= image_tag 'ball.png', size:'300x300'
+%h2 価格
+%p #{@commodity.price}
+%h2 説明文
+%p #{@commodity.description}
+
+- if user_signed_in?
+  = simple_form_for(@cart_commodity, input_html:{class:"form-inline"}) do |f|
+    = f.error_notification
+    .form-inputs
+      = f.input :quantity
+      = f.input :commodity_id, as: :hidden
+    .form-actions
+      = f.button :submit

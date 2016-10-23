@@ -1,0 +1,31 @@
+%h1 カート購入確認画面
+.row
+  .col-xs-1
+  .col-xs-10
+    %table.table
+      %thead
+        %tr
+          %th 明細
+          %th 支払額
+      %tbody
+        %tr
+          %td 商品内訳
+          %td #{@cart.commodities_total}
+        %tr
+          %td 配送料
+          %td #{@cart.shipping_fee}
+        %tr
+          %td 決済手数料
+          %td #{@cart.settlement_fee}
+        %tr
+          %td 消費税
+          %td #{@cart.tax}
+        %tr
+          %td =============
+          %td =============
+        %tr
+          %td 支払総額
+          %td #{@cart.pay_total}
+
+    %br
+    = button_to '購入する!!', order_cart_path, method: :post

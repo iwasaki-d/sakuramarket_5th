@@ -1,0 +1,24 @@
+= simple_form_for [:admin,@commodity] do |f|
+  - if @commodity.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@commodity.errors.count, "error")} prohibited this admin_commodity from being saved:"
+      %ul
+        - @commodity.errors.full_messages.each do |msg|
+          %li= msg
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :description
+    = f.text_field :description
+  .field
+    = f.label :price
+    = f.number_field :price
+  .field
+    = f.label :position
+    = f.text_field :position
+  .field
+    = f.label :view_enabled
+    = f.check_box :view_enabled
+  .actions
+    = f.submit 'Save'

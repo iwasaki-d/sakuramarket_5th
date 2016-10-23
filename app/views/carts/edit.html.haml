@@ -1,0 +1,17 @@
+%h1 決済・配送情報入力画面
+.row
+  .col-xs-1
+  .col-xs-10
+    = button_to 'ユーザー情報からコピー', update_cart_by_user_cart_path, method: :post
+    = simple_form_for(@cart, input_html:{class:"form-inline"}) do |f|
+      = f.error_notification
+      .form-inputs
+        = f.input :shipping_name
+        = f.input :shipping_email
+        = f.input :shipping_postal_code
+        = f.input :shipping_address
+        = f.input :delivery_date, as: :string, label: '年月日(yyyy-mm-dd)',
+     input_html: { class: 'datepicker', readonly:"readonly" , data: {selectable_days: @cart.selectable_delivery_dates} }
+        = f.input :delivery_time, as: :select, collection: @cart.selectable_delivery_times
+      .form-actions
+        = f.button :submit

@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @commodity.name
+%p
+  %b Description:
+  = @commodity.description
+%p
+  %b Price:
+  = @commodity.price
+%p
+  %b Position:
+  = @commodity.position
+%p
+  %b View enabled:
+  = @commodity.view_enabled
+
+= link_to 'Edit', edit_admin_commodity_path(@commodity)
+\|
+= link_to 'Back', admin_commodities_path
